@@ -1,0 +1,35 @@
+/** 
+Plan Page Styles 
+*/
+.addon-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+}
+
+.addon {
+  width: 100%;
+  margin-top: 15px;
+  padding: 5px 20px;
+  display: flex;
+  border: 1px solid red;
+  border-radius: 8px;
+}
+
+.addon input {
+  margin-right: 20px;
+}
+
+.addon-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.plan-label div {
+  margin-top: 20px;
+}

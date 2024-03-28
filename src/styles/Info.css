@@ -1,0 +1,74 @@
+/** PERSONAL INFO PAGE */
+
+.form-control {
+  margin-top: 1rem;
+}
+
+.input-control label {
+  margin-bottom: 0.5rem !important;
+  font-size: 12px;
+  color: #333;
+}
+
+.input-control input {
+  padding: 12px 0;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 100% !important;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  appearance: none;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+.input-control input::placeholder {
+  font-size: 14px;
+}
+
+.input-control input:focus-within {
+  border-color: rgb(99 60 255); /*when focused within*/
+  box-shadow: var(--bs--brandShadowDark);
+}
+
+.input-control input:active {
+  transition-timing-function: linear;
+  caret-color: var(--clr--brandPurple);
+}
+
+/* .input-control input:required {
+  border-color: hsl(354, 84%, 57%);
+  box-shadow: var(--bs--brandShadowDark);
+} */
+
+.button-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn,
+.button {
+  display: inline-block;
+  background-color: var(--Marine-blue);
+  color: var(--White);
+  padding: 11px 16px;
+  border-radius: 8px;
+  border-color: transparent;
+  text-transform: capitalize;
+  font-size: 1rem;
+  margin-top: 3rem;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  justify-self: end;
+}
+
+.button:hover {
+  box-shadow: var(--bs--brandShadowDark);
+}
+
+.button.back-button {
+  background-color: var(--White);
+  color: var(--Cool-gray);
+}
