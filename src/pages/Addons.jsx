@@ -1,71 +1,60 @@
 import React from "react";
-import Header from "../components/Header";
-import Step from "../components/Step";
-import "../styles/Addons.css";
+import { Link } from "react-router-dom";
 
 const Addons = () => {
   return (
-    <>
-      <article className="card">
-        <div className="steps-card">
-          <Step number={1} name={"step 1"} description={"Your info"} />
-          <Step number={2} name={"step 2"} description={"Select plan"} />
-          <Step number={3} name={"step 3"} description={"add-ons"} />
-          <Step number={4} name={"step 4"} description={"summary"} />
-        </div>
-        <div className="form-card">
-          <Header
-            title={"Pick add-ons"}
-            description={"Add-ons help enhance your gaming experience."}
-          />
+    <section className="form-container">
+      <form action="" className="form">
+        <div className="form-data">
+          <h1>Pick add-ons</h1>
+          <p>Add-ons help enhance your gaming experience.</p>
 
-          <form action="" className="form">
-            <div className="addon-control">
-              <div className="addon">
-                <input type="checkbox" name="plans" id="arcade" />
-                <div className="addon-label">
-                  <div>
-                    <p>Online services</p>
-                    <span>Access to multiplayer games</span>
-                  </div>
-                  <span>+$1/mo</span>
+          <div className="addons-container">
+            <div className="checkbox-control">
+              <input type="checkbox" name="plans" id="service" />
+              <label htmlFor="service">
+                <div>
+                  <h3>Online services</h3>
+                  <p>Access to multiplayer games</p>
                 </div>
-              </div>
-
-              <div className="addon">
-                <input type="checkbox" name="plans" id="arcade" />
-                <div className="addon-label">
-                  <div>
-                    <p>Large storage</p>
-                    <span>Extra 1TB of cloud save</span>
-                  </div>
-                  <span>+$2/mo</span>
-                </div>
-              </div>
-              <div className="addon">
-                <input type="checkbox" name="plans" id="arcade" />
-                <div className="addon-label">
-                  <div>
-                    <p>Customizable profile</p>
-                    <span>Custome theme on your profile</span>
-                  </div>
-                  <span>+$2/mo</span>
-                </div>
-              </div>
+                <div className="add-price">+$1/mo</div>
+              </label>
             </div>
-
-            <div className="button-control">
-              <button type="submit" className="button back-button">
-                Go Back
-              </button>
-              <button type="submit" className="button next-button">
-                Next Step
-              </button>
+            <div className="checkbox-control">
+              <input type="checkbox" name="plans" id="arcade" />
+              <label htmlFor="">
+                <div>
+                  <h3>Large storage</h3>
+                  <p>Extra 1TB of cloud save</p>
+                </div>
+                <div className="add-price">+$2/mo</div>
+              </label>
             </div>
-          </form>
+            <div className="checkbox-control">
+              <input type="checkbox" name="plans" id="arcade" />
+              <label htmlFor="">
+                <div>
+                  <h3>Customizable profile</h3>
+                  <p>Custome theme on your profile</p>
+                </div>
+                <div className="add-price">+$2/mo</div>
+              </label>
+            </div>
+          </div>
         </div>
-      </article>
-    </>
+
+        <div className="form-button">
+          <div>
+            <Link to="/" className="cool-gray">
+              Go Back
+            </Link>
+          </div>
+          <button type="submit" className="submit-btn">
+            Next Step
+          </button>
+        </div>
+      </form>
+    </section>
   );
 };
 

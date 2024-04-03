@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Info.css";
-import Step from "../components/Step";
-import Input from "../components/Input";
-import Header from "../components/Header";
 
 const Info = () => {
   const navigate = useNavigate();
@@ -27,6 +23,10 @@ const Info = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const phoneInput = document.getElementById("phone");
+
     if (user.name && user.email && user.phone) {
       console.log(user.name, user.email, user.phone);
 
@@ -38,63 +38,85 @@ const Info = () => {
       navigate("/plan");
       setUser({ name: "", email: "", phone: "" });
     } else {
+      if (!user.name) {
+        nameInput.style.borderColor = "#ed3548";
+        nameInput.previousElementSibling.children[1].textContent =
+          "This field is required";
+      }
+      if (!user.email) {
+        emailInput.style.borderColor = "#ed3548";
+        emailInput.previousElementSibling.children[1].textContent =
+          "This field is required";
+      }
+      if (!user.phone) {
+        phoneInput.style.borderColor = "#ed3548";
+        phoneInput.previousElementSibling.children[1].textContent =
+          "This field is required";
+      }
+
       console.log("Invalid inputs");
     }
   };
 
   return (
-    <>
-      <article className="card">
-        <div className="steps-card">
-          <Step number={1} name={"step 1"} description={"Your info"} />
-          <Step number={2} name={"step 2"} description={"Select plan"} />
-          <Step number={3} name={"step 3"} description={"add-ons"} />
-          <Step number={4} name={"step 4"} description={"summary"} />
-        </div>
-        <div className="form-card">
-          <Header
-            title="Personal Info"
-            description="Please provide your name, email address and phone number."
-          />
-          <form action="" className="form" onSubmit={handleSubmit}>
-            <Input
-              label="Name"
+    <section className="form-container">
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="form-data">
+          <h1>Personal Info</h1>
+          <p>Please provide your name, email address and phone number.</p>
+
+          <div className="input-control">
+            <label htmlFor="name">
+              <span>Name</span>
+              <span>&nbsp;</span>
+            </label>
+            <input
               type="text"
               name="name"
+              id="name"
               placeholder="e.g. Stephen King"
               value={user.name}
               onChange={handleChange}
-              required="required"
             />
-            <Input
-              label="Email Address"
+          </div>
+          <div className="input-control">
+            <label htmlFor="name">
+              <span>Email address</span>
+              <span>&nbsp;</span>
+            </label>
+            <input
               type="email"
               name="email"
+              id="email"
               placeholder="e.g. stephenking@lorem.com"
               value={user.email}
               onChange={handleChange}
-              required="required"
             />
-            <Input
-              label="Phone Number"
-              type="phone"
+          </div>
+          <div className="input-control">
+            <label htmlFor="name">
+              <span>Phone number</span>
+              <span>&nbsp;</span>
+            </label>
+            <input
+              type="tel"
               name="phone"
+              id="phone"
               placeholder="e.g. +1 234 567 890"
               value={user.phone}
               onChange={handleChange}
-              required="required"
             />
-
-            <div className="button-control">
-              <div>{/** For aligning the button to the right */}</div>
-              <button type="submit" className="button next-button">
-                Next Step
-              </button>
-            </div>
-          </form>
+          </div>
         </div>
-      </article>
-    </>
+
+        <div className="form-button">
+          <div>{/** For aligning the button to the right */}</div>
+          <button type="submit" className="submit-btn">
+            Next Step
+          </button>
+        </div>
+      </form>
+    </section>
   );
 };
 
